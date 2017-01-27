@@ -8,7 +8,9 @@ public class deckManipulation {
 
     // deck = shuffle(deck);
 
-    deck = reverse(deck);
+    // deck = reverse(deck);
+
+    boolean winner = fullHouse(deck);
 
     System.out.println("The final deck is:");
 
@@ -101,6 +103,34 @@ public class deckManipulation {
     }
 
     return finalDeck;
+  }
+
+  public static boolean fullHouse(int[] deck) {
+    boolean three, two;
+    three = two = false;
+
+    for (int i = 0; i <= (deck.length - 1); i++) {
+      int amount = 0;
+      for (int count = 0; count <= (deck.length - 1); count++) {
+        if (deck[i] == deck[count]) {
+          amount = amount + 1; //total number of cards of that value
+        }
+      }
+
+      if (amount >= 3) {
+        three = true;
+      } else if (amount == 2) {
+        two = true;
+      }      
+    }
+
+    if (three && two) {
+      System.out.println("There is a full house");
+      return true;
+    }
+
+    System.out.println("There is not a full house");
+    return false;
   }
 
 }
