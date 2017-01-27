@@ -6,7 +6,9 @@ public class deckManipulation {
 
     int[] deck = makeDeck();
 
-    deck = shuffle(deck);
+    // deck = shuffle(deck);
+
+    deck = reverse(deck);
 
     System.out.println("The final deck is:");
 
@@ -86,9 +88,19 @@ public class deckManipulation {
 
     return finalDeck;
 
+  }
 
+  public static int[] reverse(int[] deck) {
+    int[] finalDeck = new int[deck.length];
+    int count = 0;
 
+    for (int i = (deck.length -1); i >= 0; i--) {
+      finalDeck[count] = deck[i];
 
+      count = count + 1;
+    }
+
+    return finalDeck;
   }
 
 }
